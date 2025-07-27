@@ -31,8 +31,10 @@ jobs:
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
-        with:
-          organization: "PACKAGE-EXPLORER"
-          projectKey: "package-explore"
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.projectKey=package-explore
+            -Dsonar.organization=PACKAGE-EXPLORER
+            -Dsonar.host.url=https://sonarcloud.io
